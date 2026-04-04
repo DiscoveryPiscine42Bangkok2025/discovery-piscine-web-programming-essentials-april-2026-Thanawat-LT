@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            display: flex;
+            align-items: center;     
+            height: 100vh;           
+            margin: 0;
+            flex-direction: column;               
+        }
+
+        hr { 
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        .clearfix {
+            display: flex;           
+            justify-content: center; 
+            width: 80%;              
+        }
+
+        .box {
+            width: 33.33%;           
+            padding: 50px;
+            border: 1px solid black;
+            border-radius: 1%;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+    </style>
+<body>
+
+<hr>
+
+<div class="clearfix">
+  <div class="box" style="background-color:#afb">
+    <p>Superpower</p>
+  </div>
+  <div class="box" style="background-color:#cad">
+    <p>Freaky</p>
+  </div>
+</div>
+
+</body>
+</html>
