@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -32,20 +33,20 @@
     alert("Please, use me...");
   }, 30000);
 
-  document.getElementById("calcForm").addEventListener("submit", function(event) {
+  $("#calcForm").on("submit", function(event) {
     event.preventDefault();
 
-    let first = document.getElementById("fname").value;
-    let second = document.getElementById("lname").value;
-    let operator = document.getElementById("operetor").value;
+    let first = $("#fname").val();
+    let second = $("#lname").val();
+    let operator = $("#operetor").val();
 
     let n1 = Number(first);
     let n2 = Number(second);
 
     if (
       first.trim() === "" || second.trim() === "" ||
-      isNaN(n1) || isNaN(n2) || 
-      !Number.isInteger(n1) || !Number.isInteger(n2) || 
+      isNaN(n1) || isNaN(n2) ||
+      !Number.isInteger(n1) || !Number.isInteger(n2) ||
       n1 < 0 || n2 < 0
     ) {
       alert("Error :(");

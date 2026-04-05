@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="backgroound.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<button type="button" id="colorBtn"> Click Me!</button>
+
+<script>
+    $("#colorBtn").click(function() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+
+        $("body").css("background-color", `rgb(${r}, ${g}, ${b})`);
+    });
+</script>
+
+</html>
