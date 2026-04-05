@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+
+<h1>Calculator</h1>
+
+<form id="calcForm">
+  <label for="fname">First number: </label>
+  <input type="text" id="fname" name="fname"><br><br>
+
+  <label for="operetor">Choose your operator</label>
+  <select name="operetor" id="operetor">
+    <option value="add">+</option>
+    <option value="minus">-</option>
+    <option value="multiply">*</option>
+    <option value="divide">/</option>
+    <option value="modulo">%</option>
+  </select><br><br>
+
+  <label for="lname">Second number: </label>
+  <input type="text" id="lname" name="lname"><br><br>
+  
+  <input type="submit" value="Try me">
+</form>
+
+
+<script>
+  // Updated Calculator logic
+  document.getElementById("calcForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let first = document.getElementById("fname").value;
+    let second = document.getElementById("lname").value;
+    let operator = document.getElementById("operetor").value;
+
+    // 1. Convert to numbers first (to see if they are valid numbers at all)
+    let n1 = Number(first);
+    let n2 = Number(second);
+
+    // 2. Strict Validation: 
+    // Check if it's a valid number AND if it's an integer AND if it's positive
+    // Also check if the original string was empty or just whitespace
+    if (
+      first.trim() === "" || second.trim() === "" ||
+      isNaN(n1) || isNaN(n2) || 
+      !Number.isInteger(n1) || !Number.isInteger(n2) || 
+      n1 < 0 || n2 < 0
+    ) {
+      alert("Error :(");
+      console.log("Error :(");
+      return;
+    }
+
+    let result;
+    // The rest of your switch statement remains the same...
+    switch(operator) {
+      case "add":
+        result = n1 + n2;
+        break;
+      case "minus":
+        result = n1 - n2;
+        break;
+      case "multiply":
+        result = n1 * n2;
+        break;
+      case "divide":
+        if (n2 === 0) {
+          alert("It's over 9000!");
+          return;
+        }
+        result = n1 / n2;
+        break;
+      case "modulo":
+        if (n2 === 0) {
+          alert("It's over 9000!");
+          return;
+        }
+        result = n1 % n2;
+        break;
+    }
+
+    alert("Result: " + result);
+    console.log("Result: " + result);
+  });
+</script>
+
+</body>
+</html>
